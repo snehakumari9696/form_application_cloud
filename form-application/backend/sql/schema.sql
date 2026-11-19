@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS form_app;
+USE form_app;
+
+CREATE TABLE IF NOT EXISTS submissions (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  age TINYINT UNSIGNED NOT NULL,
+  s3_bucket VARCHAR(63) NOT NULL,
+  s3_key VARCHAR(1024) NOT NULL,
+  original_filename VARCHAR(255) NOT NULL,
+  mime_type VARCHAR(100) NOT NULL,
+  file_size BIGINT UNSIGNED NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX idx_submissions_created_at (created_at)
+);
